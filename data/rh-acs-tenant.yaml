@@ -27,7 +27,7 @@ metadata:
 spec:
   application: acs
   componentName: central-db
-  containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:e372660cee50a26f91155615726d765770b8bb881776d50ab2f6ee8e5c64de58
+  containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:fd615eb28ace04650c76ec2cd80e07ccf95b883ade96742330ac9badbe1f2d50
   replicas: 0
   resources:
     requests:
@@ -442,6 +442,32 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-2jxg9
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:629cefb1594912500caf813ce12f2d29a2793803b17086e8e53a5b3b3d1c66d4
+    name: central-db
+    source:
+      git:
+        revision: 9f745d083ea1bd7b6963d3f4badf3e7c61879b84
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-2ksb5
   namespace: rh-acs-tenant
 spec:
@@ -642,6 +668,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: be72cc3c793be4d6cd81cdbc0ae353856829bfaa
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-465dv
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:3e2179b0852abeee6d702bbb978dbba9b8def0c353f013cd5edf94646b5285ea
+    name: central-db
+    source:
+      git:
+        revision: fcf4c13e1995b0acdb0d18a7f03ce7c24ab7781a
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -1224,6 +1276,58 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-66cfl
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:b6c41778fac0c3ebc171d009292a4a348d4d2d646fe1eb6f9f9e090f76963e11
+    name: central-db
+    source:
+      git:
+        revision: 39d266b11d82b1233e2a18a417062dd8977fd525
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-67mgx
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:98e53c88eff3d82443001aff36c7f6163507f38da5831eb60cb5a8d26b98d278
+    name: central-db
+    source:
+      git:
+        revision: b1da26125b37886cd360a226d4a579b5cd133ca5
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-68vb5
   namespace: rh-acs-tenant
 spec:
@@ -1268,6 +1372,39 @@ spec:
     source:
       git:
         revision: 678aeb125f40609ef81304f707377be4a32c830c
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-6bnnq
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/collector-slim@sha256:7ea9ec9495e5904eb439fcdd896874ca32743b8236e3f3d52b90e03e73311bff
+    name: collector-slim
+    source:
+      git:
+        revision: 4f4475f9f075b63385a5444fef5ab8c503a76c18
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:01c42cca3eb67565dae20a966735585c3f35c7554b2a40cb0b7d08234e8340a3
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 30fb34d66f3391c5a1bcbf2dac0696ff7ff97a7f
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -1431,6 +1568,32 @@ spec:
     source:
       git:
         revision: d03fbf34da5ff665b8057f73514b51398e1db3a0
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-742vc
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:fd615eb28ace04650c76ec2cd80e07ccf95b883ade96742330ac9badbe1f2d50
+    name: central-db
+    source:
+      git:
+        revision: 84a7257b75d1aeb9d8218441d7f72effc99d0163
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -1662,6 +1825,39 @@ spec:
     source:
       git:
         revision: 7dcc3440f357069a5074e4da458736f95bed3ff4
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-7ptgq
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/scanner@sha256:6c394f7d5cac00cc90717e49452725597c9a8134821e9e199827adfae615b13f
+    name: scanner
+    source:
+      git:
+        revision: 71899f4733adb2ea0aab457a5b2af875b62db1fb
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:3e2179b0852abeee6d702bbb978dbba9b8def0c353f013cd5edf94646b5285ea
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: fcf4c13e1995b0acdb0d18a7f03ce7c24ab7781a
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -1963,6 +2159,32 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-8q89f
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:c52d1b81875fbe0c9144dc7ffc5509804dc7473dcaf42b361105f002d0fefa17
+    name: central-db
+    source:
+      git:
+        revision: 989c435217ff336654893951657fdbb2702c74ba
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-8vkdw
   namespace: rh-acs-tenant
 spec:
@@ -2118,6 +2340,32 @@ spec:
     source:
       git:
         revision: 08f7fd4eef756d802e821e4f5bbb7330adf0f087
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-9ctlm
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:1a63fa3760bfa9ddcd20e6090d5c11187a61157b597128ddcbb170ee3a741e22
+    name: roxctl
+    source:
+      git:
+        revision: 39d266b11d82b1233e2a18a417062dd8977fd525
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:d5db1c588c08027e582dfb9f4cb65f16ca99c15a20b818f2af64e881f0b59d0c
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 6f3478e8762a161d07a2b99867ee10a55e9f282e
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -2307,6 +2555,39 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 830d823c0a6504c2d30323ea88415fb5d97bc0b4
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-b5jsp
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:e372660cee50a26f91155615726d765770b8bb881776d50ab2f6ee8e5c64de58
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/operator@sha256:6acdb74573d18d0fd5c27a731d6a6a00eaca950cb02c58855d0059f95e7712b4
+    name: operator
+    source:
+      git:
+        revision: 989c435217ff336654893951657fdbb2702c74ba
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -2607,6 +2888,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 3a5f00bf78beb8108ae4051283452d62750a3b82
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-brvth
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:bf0d0fae30c2b50c5d18bb31a2d75646fd92afdad4cda5c6d0d0231d678a39dd
+    name: central-db
+    source:
+      git:
+        revision: 998816f204cdac8e739019bcf670c49cd830e93e
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -3423,6 +3730,39 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-fldgl
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/collector-slim@sha256:51874c8e23034352ad0b0c8ae7db0908b4d232b7a78d7eb022ce8aacfcb1df6a
+    name: collector-slim
+    source:
+      git:
+        revision: d44cd270c5de75adcaf81a7d72a6140cb4f472ce
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:e372660cee50a26f91155615726d765770b8bb881776d50ab2f6ee8e5c64de58
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-fnpfm
   namespace: rh-acs-tenant
 spec:
@@ -3526,6 +3866,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 08f7fd4eef756d802e821e4f5bbb7330adf0f087
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-g6wps
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:fd8f9cdf06662129e7613aa16f5399e0c9962d7eaace311bbb3150a9fa5e1f2d
+    name: central-db
+    source:
+      git:
+        revision: 21a1ded78a0c23db387fc97f4549e46b5c35771e
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -3897,6 +4263,32 @@ spec:
     source:
       git:
         revision: a3147b1dcb1f0412ea43399308b947f4efdfcd1c
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-h5gx7
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:4b57e8a5f33e3f7e6c25dad612cca8783c6f0191f4eb8f26c092c01547de616a
+    name: central-db
+    source:
+      git:
+        revision: f1469cb8eb6ac2edc840857b4eba2dc6ada93523
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -5247,6 +5639,32 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-ll5vg
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:17e76f8debaa2720f247a5e36eeb612d88da637054adf6a0e4b7c05df553d17f
+    name: roxctl
+    source:
+      git:
+        revision: 998816f204cdac8e739019bcf670c49cd830e93e
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:e372660cee50a26f91155615726d765770b8bb881776d50ab2f6ee8e5c64de58
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-llvlc
   namespace: rh-acs-tenant
 spec:
@@ -5663,6 +6081,58 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-mbnzf
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:d5db1c588c08027e582dfb9f4cb65f16ca99c15a20b818f2af64e881f0b59d0c
+    name: central-db
+    source:
+      git:
+        revision: 6f3478e8762a161d07a2b99867ee10a55e9f282e
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-mhxb7
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:bf48f24225331dc8dc5d2e77957e51680e32b36849adb59294ee981672253787
+    name: central-db
+    source:
+      git:
+        revision: 22f61cc17659d09fa554d208cd12b7c2a0790774
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-mjdjm
   namespace: rh-acs-tenant
 spec:
@@ -5707,6 +6177,32 @@ spec:
     source:
       git:
         revision: 6659e38e3326e8b4f2049e3f3745455e71f6e06e
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-mm8gj
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:01c42cca3eb67565dae20a966735585c3f35c7554b2a40cb0b7d08234e8340a3
+    name: central-db
+    source:
+      git:
+        revision: 30fb34d66f3391c5a1bcbf2dac0696ff7ff97a7f
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -6230,6 +6726,39 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-pj2bk
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/collector-slim@sha256:310db891d5dd0c2a0d950e78a3a3aabbae60485598c7caf8cd01dee608fbed2a
+    name: collector-slim
+    source:
+      git:
+        revision: fb4ded4bd2fd3b479deed068b1c0c2d7defe8810
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:d5db1c588c08027e582dfb9f4cb65f16ca99c15a20b818f2af64e881f0b59d0c
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 6f3478e8762a161d07a2b99867ee10a55e9f282e
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-pjgkm
   namespace: rh-acs-tenant
 spec:
@@ -6404,6 +6933,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 96e51f27a4578bc45b3af67e67ff3ca1ea01272d
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-ppdxb
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:3ef6e6196e32545baac3665bc88b847ce98d630ffd12628f999ba8ef91b0773c
+    name: central-db
+    source:
+      git:
+        revision: 20f31a203a459b177f12af51be6a573a093b6b6a
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -6894,6 +7449,39 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-qzmsc
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/main@sha256:a77c1373debf2419af6e6e05c93d6dbc8ac9c04deb248954e162b29607659312
+    name: main
+    source:
+      git:
+        revision: 62515f6a828d3e52de8c1b64800ab744a3a6d679
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:01c42cca3eb67565dae20a966735585c3f35c7554b2a40cb0b7d08234e8340a3
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 30fb34d66f3391c5a1bcbf2dac0696ff7ff97a7f
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-r2hlm
   namespace: rh-acs-tenant
 spec:
@@ -7175,6 +7763,32 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-rm8xg
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:e68dfe199a9087b1b386054175780bdc7493cecec909b626d5028d33af8461d4
+    name: central-db
+    source:
+      git:
+        revision: 4ddc4ada1ac8e2111958863ec4929388f601becc
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-rmwhz
   namespace: rh-acs-tenant
 spec:
@@ -7401,6 +8015,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: d03fbf34da5ff665b8057f73514b51398e1db3a0
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-skflj
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:f6d32004a581e92062d59cb1ef9dc34c567af68dfc9eb4d58d1367ec0e8b412e
+    name: central-db
+    source:
+      git:
+        revision: c825fa1b34d326744ed0e74e990a2811c4147c5d
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -7916,6 +8556,39 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 2df806e6519ab6a5fc3fc66e415ac22ede3c008b
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-txmzc
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:d5db1c588c08027e582dfb9f4cb65f16ca99c15a20b818f2af64e881f0b59d0c
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 6f3478e8762a161d07a2b99867ee10a55e9f282e
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/operator@sha256:ee46f8a88ef431d3df0a35533654c4f63da05750037254d0d301c9499ad2f0f3
+    name: operator
+    source:
+      git:
+        revision: 39d266b11d82b1233e2a18a417062dd8977fd525
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -8543,6 +9216,65 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-x6mz9
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:4b8a66c7847890b462b128daabf5efd33dd01d1503f916c1ee138b3f81bc9fd0
+    name: central-db
+    source:
+      git:
+        revision: 5363f600ddec159804c3f65de554afbef19337ec
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-x6rrh
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/collector-slim@sha256:30a24cc2ef81dda50b092a9b14d7e741c20dc7dfd412ef9671245ce3eeafc518
+    name: collector-slim
+    source:
+      git:
+        revision: c1ea370adb7190f47441dc379f9b4d0ad9ef1fea
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:01c42cca3eb67565dae20a966735585c3f35c7554b2a40cb0b7d08234e8340a3
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 30fb34d66f3391c5a1bcbf2dac0696ff7ff97a7f
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-x7bxw
   namespace: rh-acs-tenant
 spec:
@@ -8784,6 +9516,39 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-xknw9
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:01c42cca3eb67565dae20a966735585c3f35c7554b2a40cb0b7d08234e8340a3
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/rhtap.Dockerfile
+        revision: 30fb34d66f3391c5a1bcbf2dac0696ff7ff97a7f
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/collector@sha256:804e0d3adb5d91110f0025815a597bfb067a46f636561ddecc032e87ed8d499d
+    name: collector
+    source:
+      git:
+        revision: 4f4475f9f075b63385a5444fef5ab8c503a76c18
+        url: https://github.com/stackrox/collector
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-xlh6b
   namespace: rh-acs-tenant
 spec:
@@ -8802,6 +9567,32 @@ spec:
       git:
         dockerfileUrl: image/postgres/rhtap.Dockerfile
         revision: 7dcc3440f357069a5074e4da458736f95bed3ff4
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-xs956
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/roxctl@sha256:ed44a8668d23c3348773575b68c9c5652198c2893b5884e7ce61307d1f830392
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: Dockerfile
+        revision: 4a463ce3c37b10569f6ee467ec00deb7b70dd729
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/redhat-user-workloads/rh-acs-tenant/acs/central-db@sha256:9bbb90cf4b1a11722176451ba7a0e330407bb548ca3cd9a644d015bda5795775
+    name: central-db
+    source:
+      git:
+        revision: d6d3a95781131dfc6ca15e8b7d9490d56603379b
         url: https://github.com/stackrox/stackrox
 status:
   conditions: null
@@ -9269,5 +10060,5 @@ spec:
   - configuration: {}
     name: central-db
   environment: development
-  snapshot: acs-9n4qm
+  snapshot: acs-742vc
 status: {}
