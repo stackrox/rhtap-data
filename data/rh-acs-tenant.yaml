@@ -142,7 +142,7 @@ spec:
   source:
     git:
       dockerfileUrl: operator/rhtap.Dockerfile
-      revision: tm/rhtap-operator
+      revision: master
       url: https://github.com/stackrox/stackrox
   targetPort: 8080
 status:
