@@ -1,0 +1,8 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Release
+metadata:
+  name: tm-1710436534
+  namespace: rh-acs-tenant
+spec:
+  releasePlan: rh-acs-fast-stream
+  snapshot: acs-79l9g
