@@ -76,41 +76,12 @@ metadata:
     image.redhat.com/generate: '{"visibility": "public"}'
     skip-initial-checks: "true"
   creationTimestamp: null
-  name: collector-slim
-  namespace: rh-acs-tenant
-spec:
-  application: acs
-  componentName: collector-slim
-  containerImage: quay.io/rhacs-eng/collector@sha256:62f9851f9b9e2818d8643d60a70f604a849cebaa75db5fbb1cb9d54a976b51e2
-  replicas: 0
-  resources:
-    requests:
-      cpu: 10m
-      memory: 50Mi
-  source:
-    git:
-      context: .
-      devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-python-basic/main/devfile.yaml
-      dockerfileUrl: collector/container/konflux.Dockerfile
-      revision: master
-      url: https://github.com/stackrox/collector
-  targetPort: 8081
-status:
-  gitops: {}
----
-apiVersion: appstudio.redhat.com/v1alpha1
-kind: Component
-metadata:
-  annotations:
-    image.redhat.com/generate: '{"visibility": "public"}'
-    skip-initial-checks: "true"
-  creationTimestamp: null
   name: main
   namespace: rh-acs-tenant
 spec:
   application: acs
   componentName: main
-  containerImage: quay.io/rhacs-eng/main@sha256:5a4624ff9d965b51485a3eee8c17470171c17c55b7f76a2b5946d9625536b4cc
+  containerImage: quay.io/rhacs-eng/main@sha256:bae93d0b313e25ffdfc64743cef5927dc461df27b8821851d3524cab45808d1d
   replicas: 0
   resources:
     requests:
@@ -10329,6 +10300,100 @@ apiVersion: appstudio.redhat.com/v1alpha1
 kind: Snapshot
 metadata:
   creationTimestamp: null
+  name: acs-hghm4
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/rhacs-eng/scanner-slim@sha256:601275e95c5d181636a05c85e5537efecee5560b75b67af4053b8c57e6d077e6
+    name: scanner-slim
+    source:
+      git:
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: image/scanner/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/central-db@sha256:534e0b6f9b99ab2d38c480c3ae464ffc93b36d5de4008875c7dfe354a049dcca
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/scanner-db-slim@sha256:5534475cf665dd0071e3d4e1b18885c62b63a0810c065f1eb2b3e86fac65e583
+    name: scanner-db-slim
+    source:
+      git:
+        context: .
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: image/db/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/main@sha256:bae93d0b313e25ffdfc64743cef5927dc461df27b8821851d3524cab45808d1d
+    name: main
+    source:
+      git:
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/stackrox-operator@sha256:300b3d8eef4c9d6afad789dc1b06edd773abe3e3dcdb65d8fd118460fb029f09
+    name: operator
+    source:
+      git:
+        dockerfileUrl: operator/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/roxctl@sha256:74cc7a425ef61594cb4f76476ac0a3385925e8d96fc1e3a5ee3ca9d21ed5d493
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: image/roxctl/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/scanner@sha256:c309fb1e71d35b409be2a8ec15167053c4b5884b843bcb6a10eed35c3fd37215
+    name: scanner
+    source:
+      git:
+        dockerfileUrl: image/scanner/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/scanner-db@sha256:3c2d587646ad0038f83dc675c990801c94172458d8142767bc917d7e7bf19e95
+    name: scanner-db
+    source:
+      git:
+        dockerfileUrl: image/db/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/scanner-v4@sha256:15a478f82d13befa78cc147a5d1db860636d3d771ec62a78b2ea2872bc3c5dec
+    name: scanner-v4
+    source:
+      git:
+        context: scanner
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/docker/Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/collector@sha256:7463f4b45eaa682eb6f3e613d8764f58992ad2d4c0f55f8e9b81e74fd07f3004
+    name: collector
+    source:
+      git:
+        dockerfileUrl: collector/container/konflux.Dockerfile
+        revision: 8198c305e6d8ebaaeb31f44b54e2ec0cee5f2612
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/rhacs-eng/scanner-v4-db@sha256:d399f369787287cc2a0a4476ffe5b0fadda7e22dc4b0cc0dc525e375dbc58481
+    name: scanner-v4-db
+    source:
+      git:
+        dockerfileUrl: scanner/image/db/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
   name: acs-hp2ct
   namespace: rh-acs-tenant
 spec:
@@ -16173,6 +16238,101 @@ spec:
         dockerfileUrl: image/db/rhel/konflux.Dockerfile
         revision: 4e72aeb39f188c892dd0b3a7576f866839fd04d5
         url: https://github.com/stackrox/scanner
+status:
+  conditions: null
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: null
+  name: acs-qwn5j
+  namespace: rh-acs-tenant
+spec:
+  application: acs
+  artifacts: {}
+  components:
+  - containerImage: quay.io/rhacs-eng/central-db@sha256:534e0b6f9b99ab2d38c480c3ae464ffc93b36d5de4008875c7dfe354a049dcca
+    name: central-db
+    source:
+      git:
+        dockerfileUrl: image/postgres/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/scanner-db-slim@sha256:5534475cf665dd0071e3d4e1b18885c62b63a0810c065f1eb2b3e86fac65e583
+    name: scanner-db-slim
+    source:
+      git:
+        context: .
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: image/db/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/scanner-slim@sha256:601275e95c5d181636a05c85e5537efecee5560b75b67af4053b8c57e6d077e6
+    name: scanner-slim
+    source:
+      git:
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: image/scanner/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/roxctl@sha256:74cc7a425ef61594cb4f76476ac0a3385925e8d96fc1e3a5ee3ca9d21ed5d493
+    name: roxctl
+    source:
+      git:
+        dockerfileUrl: image/roxctl/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/scanner@sha256:c309fb1e71d35b409be2a8ec15167053c4b5884b843bcb6a10eed35c3fd37215
+    name: scanner
+    source:
+      git:
+        dockerfileUrl: image/scanner/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/scanner-db@sha256:3c2d587646ad0038f83dc675c990801c94172458d8142767bc917d7e7bf19e95
+    name: scanner-db
+    source:
+      git:
+        dockerfileUrl: image/db/rhel/konflux.Dockerfile
+        revision: 631dea9898c3c69f18ea3c45dd66e733cd616905
+        url: https://github.com/stackrox/scanner
+  - containerImage: quay.io/rhacs-eng/scanner-v4@sha256:15a478f82d13befa78cc147a5d1db860636d3d771ec62a78b2ea2872bc3c5dec
+    name: scanner-v4
+    source:
+      git:
+        context: scanner
+        devfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/devfile.yaml
+        dockerfileUrl: https://raw.githubusercontent.com/devfile-samples/devfile-sample-go-basic/main/docker/Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/collector@sha256:7463f4b45eaa682eb6f3e613d8764f58992ad2d4c0f55f8e9b81e74fd07f3004
+    name: collector
+    source:
+      git:
+        dockerfileUrl: collector/container/konflux.Dockerfile
+        revision: 8198c305e6d8ebaaeb31f44b54e2ec0cee5f2612
+        url: https://github.com/stackrox/collector
+  - containerImage: quay.io/rhacs-eng/main@sha256:5a4624ff9d965b51485a3eee8c17470171c17c55b7f76a2b5946d9625536b4cc
+    name: main
+    source:
+      git:
+        dockerfileUrl: image/rhel/konflux.Dockerfile
+        revision: 0f6972c06db38d5f67fd6683f49f058a7d277f15
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/stackrox-operator@sha256:300b3d8eef4c9d6afad789dc1b06edd773abe3e3dcdb65d8fd118460fb029f09
+    name: operator
+    source:
+      git:
+        dockerfileUrl: operator/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
+  - containerImage: quay.io/rhacs-eng/scanner-v4-db@sha256:d399f369787287cc2a0a4476ffe5b0fadda7e22dc4b0cc0dc525e375dbc58481
+    name: scanner-v4-db
+    source:
+      git:
+        dockerfileUrl: scanner/image/db/konflux.Dockerfile
+        revision: 981782d601c68f3dd78ef8f3d64e68f060f15c21
+        url: https://github.com/stackrox/stackrox
 status:
   conditions: null
 ---
