@@ -1,0 +1,29 @@
+apiVersion: appstudio.redhat.com/v1beta1
+kind: IntegrationTestScenario
+metadata:
+  name: acs-enterprise-contract-custom-tasks
+  namespace: rh-acs-tenant
+  labels:
+    test.appstudio.openshift.io/optional: "true"
+spec:
+  application: acs
+  contexts:
+  - description: Application testing
+    name: application
+  params:
+  - name: POLICY_CONFIGURATION
+    value: github.com/stackrox/rhtap-data//enterprise-contract?ref=ec-modifiable-policy
+  # The default 5m timeout is not enough for the enterprise contact check for ACS,
+  # due to the fact that ACS contains many images (currently 12), some of which large
+  - name: TIMEOUT
+    value: 40m
+
+  resolverRef:
+    params:
+    - name: url
+      value: https://github.com/konflux-ci/build-definitions
+    - name: revision
+      value: main
+    - name: pathInRepo
+      value: pipelines/enterprise-contract.yaml
+    resolver: git

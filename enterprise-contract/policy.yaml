@@ -1,0 +1,40 @@
+# Original at: https://gitlab.cee.redhat.com/releng/konflux-release-data/-/raw/main/config/stone-prd-rh01.pg1f.p1/product/EnterpriseContractPolicy/registry-rh-acs.yaml
+# Update this file as needed.
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: EnterpriseContractPolicy
+metadata:
+  name: registry-rh-acs
+  namespace: rhtap-releng-tenant
+spec:
+  description: 'A special reduced ruleset for RHACS. <Link to prodsec exception tracker goes here>'
+  publicKey: 'k8s://openshift-pipelines/public-key'
+  sources:
+    - name: Release Policies
+      ruleData:
+        allowed_registry_prefixes:
+          - registry.access.redhat.com/
+          - registry.redhat.io/
+          - brew.registry.redhat.io/rh-osbs/openshift-golang-builder
+      data:
+        - github.com/release-engineering/rhtap-ec-policy//data
+        - oci::quay.io/konflux-ci/tekton-catalog/data-acceptable-bundles:latest
+      policy:
+        - oci::quay.io/enterprise-contract/ec-release-policy:git-a64de53@sha256:fdb8b7e65ca3744d23958dbe9df8cf8ba34c2dd1ebdee6c1c84c3bb72ce83f9d
+      config:
+        include:
+          - '@redhat'
+        exclude:
+          # Because they include a custom task in their build pipelines in order to side-load kernel headers and
+          # vulnerability definitions. That is covered by a ProdSec exception, but EC complains about it today.
+          # Grant this exception until EC can learn to tolerate it.
+          # https://issues.redhat.com/browse/KONFLUX-319
+          # TODO(ROX-22196): create bundles for ACS custom tasks
+          - 'attestation_task_bundle.tasks_defined_in_bundle'
+          # TODO(ROX-22196): same
+          - 'trusted_task.trusted:<NAMELESS>'
+          # Because some of their images need to be built with network.
+          # We need pre-fetch support for rpms to make this work:
+          # https://issues.redhat.com/browse/KONFLUX-1318
+          # TODO(ROX-20234): Ensure RPM/*dnf operations work in hermetic builds
+          - 'hermetic_build_task.build_task_hermetic'
+          - 'tasks.required_tasks_found:prefetch-dependencies'
