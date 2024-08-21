@@ -28,10 +28,10 @@ spec:
           # vulnerability definitions. That is covered by a ProdSec exception, but EC complains about it today.
           # Grant this exception until EC can learn to tolerate it.
           # https://issues.redhat.com/browse/KONFLUX-319
-          # TODO(ROX-22196): create bundles for ACS custom tasks
-          - 'attestation_task_bundle.tasks_defined_in_bundle'
-          # TODO(ROX-22196): same
-          - 'trusted_task.trusted:<NAMELESS>'
+          # # TODO(ROX-22196): create bundles for ACS custom tasks
+          # - 'attestation_task_bundle.tasks_defined_in_bundle'
+          # # TODO(ROX-22196): same
+          # - 'trusted_task.trusted:<NAMELESS>'
           # Because some of their images need to be built with network.
           # We need pre-fetch support for rpms to make this work:
           # https://issues.redhat.com/browse/KONFLUX-1318
