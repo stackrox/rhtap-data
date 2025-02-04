@@ -1,0 +1,41 @@
+# kubectl get rolebinding snapshot-creator
+# kubectl get role snapshot-creator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"RoleBinding","metadata":{"annotations":{},"name":"snapshot-creator","namespace":"rh-acs-tenant"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"snapshot-creator"},"subjects":[{"kind":"ServiceAccount","name":"appstudio-pipeline","namespace":"rh-acs-tenant"}]}
+  creationTimestamp: "2024-12-18T08:49:03Z"
+  name: snapshot-creator
+  namespace: rh-acs-tenant
+  resourceVersion: "2867178611"
+  uid: de27ed9e-ff50-4a48-9e18-63014391178d
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: snapshot-creator
+subjects:
+- kind: ServiceAccount
+  name: appstudio-pipeline
+  namespace: rh-acs-tenant
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"name":"snapshot-creator","namespace":"rh-acs-tenant"},"rules":[{"apiGroups":["appstudio.redhat.com"],"resources":["snapshots"],"verbs":["create"]}]}
+  creationTimestamp: "2024-12-18T08:48:09Z"
+  name: snapshot-creator
+  namespace: rh-acs-tenant
+  resourceVersion: "2867175319"
+  uid: 20a14352-2559-4d37-8953-f14d7080db44
+rules:
+- apiGroups:
+  - appstudio.redhat.com
+  resources:
+  - snapshots
+  verbs:
+  - create
